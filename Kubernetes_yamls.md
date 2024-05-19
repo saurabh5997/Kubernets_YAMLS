@@ -199,7 +199,7 @@ spec:
 ```
 
 DEPLOYMENT OBJECT OPENING CONTAINER PORT
-
+```
 kind: Deployment
 apiVersion: apps/v1
 metadata:
