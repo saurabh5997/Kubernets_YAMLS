@@ -1,5 +1,6 @@
 ##SINGLE CONTAINER POD
 
+```
 kind: Pod                              
 apiVersion: v1                     
 metadata:                           
@@ -10,6 +11,7 @@ spec:
       image: ubuntu              
       command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
   restartPolicy: Never         # Defaults to Always
+```
 
 ----------------------------------------------------------------------------------
 
