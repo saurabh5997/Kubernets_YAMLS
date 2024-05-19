@@ -221,12 +221,12 @@ spec:
           ports:
           - containerPort: 80
 
-
 ```
 ---------------------------------------------------------------------------------
 
 EXAMPLE OF SERVICE
 
+```
 kind: Service                             # Defines to create Service type Object
 apiVersion: v1
 metadata:
