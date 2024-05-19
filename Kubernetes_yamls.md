@@ -446,7 +446,7 @@ spec:
 EXAMPLE OF SECRETS      
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: myvolsecret
