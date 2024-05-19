@@ -663,8 +663,7 @@ spec:
         memory: "600Mi"
 
 ```
-- If request is not specified & limit is given, then request = limit
-=================
+- If request is not specified & limit is given, then request = limiT
 $ wget -O metricserver.yml https://github.com/kubernetes-sigs/me...
 --------------
 
@@ -711,11 +710,8 @@ $ kubectl autoscale deployment mydeploy --cpu-percent=20 --min=1 --max=10
 ------------------------------------------------------------------------------------------------------
 
 
-JOB RELATED YAMLS
+EXAMPLE OF JOB
 -----------
-
-
-Job
 
 ```
 apiVersion: batch/v1
@@ -733,7 +729,7 @@ spec:
         command: ["bin/bash", "-c", "echo Technical-Guftgu; sleep 5"]
       restartPolicy: Never
 ```
-
+EXAMPLE OF PARALLELISM
 --------------
 ```
 apiVersion: batch/v1
@@ -753,7 +749,7 @@ spec:
         command: ["bin/bash", "-c", "echo Technical-Guftgu; sleep 20"]
       restartPolicy: Never
 ```
-
+EXAMPLE OF CRONJOB
 -------------
 ```
 apiVersion: batch/v1beta1
