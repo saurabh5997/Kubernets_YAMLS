@@ -664,7 +664,7 @@ spec:
 
 ```
 - If request is not specified & limit is given, then request = limiT
-$ wget -O metricserver.yml https://github.com/kubernetes-sigs/me...
+$ wget -O metricserver.yml [https://github.com/kubernetes-sigs/me...](https://objects.githubusercontent.com/github-production-release-asset-2e65be/92132038/59a9b488-6295-4fdb-ad68-fa4b8b0bce56?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20240519%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240519T141520Z&X-Amz-Expires=300&X-Amz-Signature=abc05838ad5297ea4d61fdeeaf24306df92512a23e65381a55a7c36a233e1f56&X-Amz-SignedHeaders=host&actor_id=140532711&key_id=0&repo_id=92132038&response-content-disposition=attachment%3B%20filename%3Dcomponents.yaml&response-content-type=application%2Foctet-stream)
 --------------
 
 ```
