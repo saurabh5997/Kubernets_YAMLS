@@ -16,7 +16,7 @@ spec:
 ----------------------------------------------------------------------------------
 
 MULTI CONTAINER POD
-
+```
 kind: Pod
 apiVersion: v1
 metadata:
@@ -29,11 +29,11 @@ spec:
     - name: c01
       image: ubuntu
       command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
-
+```
 ------------------------------------------------------------------------------------
 
 POD ENVIRONMENT  VARIABLES
-
+```
 kind: Pod
 apiVersion: v1
 metadata:
@@ -46,11 +46,11 @@ spec:
       env:                        # List of environment variables to be used inside the pod
       - name: MYNAME
         value: BHUPINDER
-
+```
 ------------------------------------------------------------------------------------
 
 POD WITH PORTS
-
+```
 kind: Pod
 apiVersion: v1
 metadata:
@@ -61,12 +61,12 @@ spec:
       image: httpd
       ports:
        - containerPort: 80  
-
+```
 ------------------------------------------------------------------------------------
 
 
 EXAMPLE OF LABELS
-
+```
 kind: Pod
 apiVersion: v1
 metadata:
@@ -82,10 +82,10 @@ spec:
 
 ------------------------------------------------------------------------------------
 
-
+```
 NODE SELECTOR EXAMPLE
 
-
+```
 kind: Pod
 apiVersion: v1
 metadata:
@@ -99,12 +99,12 @@ spec:
          command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
     nodeSelector:                                         
        hardware: t2-medium
-
+```
 ------------------------------------------------------------------------------------
 
 
 EXAMPLE OF REPLICATION CONTROLLER
-
+```
 kind: ReplicationController               
 apiVersion: v1
 metadata:
@@ -124,12 +124,12 @@ spec:
          image: ubuntu
          command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
 
-
+```
 ------------------------------------------------------------------------------------
 
 
 EXAMPLE OF REPLICA SET
-
+```
 kind: ReplicaSet                                    
 apiVersion: apps/v1                            
 metadata:
@@ -151,11 +151,11 @@ spec:
          image: ubuntu
          command: ["/bin/bash", "-c", "while true; do echo Technical-Guftgu; sleep 5 ; done"]
 
-
+```
 ------------------------------------------------------------------------------------
 
 EXAMPLE OF DEPLOYMENT
-
+```
 kind: Deployment
 apiVersion: apps/v1
 metadata:
@@ -176,13 +176,13 @@ spec:
           image: ubuntu
           command: ["/bin/bash", "-c", "while true; do echo Technical-Guftgu; sleep 5; done"]
 
-
+```
 ------------------------------------------------------------------------------------
 
 KUBERNETES NETWORKING
 ----------------------------------------------------------------------------------
 EXAMPLE OF OPENING CONATINER PORT
-
+```
 kind: Pod
 apiVersion: v1
 metadata:
@@ -196,7 +196,7 @@ spec:
       image: httpd
       ports:
        - containerPort: 80
-
+```
 
 DEPLOYMENT OBJECT OPENING CONTAINER PORT
 
@@ -222,7 +222,7 @@ spec:
           - containerPort: 80
 
 
-
+```
 ---------------------------------------------------------------------------------
 
 EXAMPLE OF SERVICE
@@ -240,7 +240,7 @@ spec:
   type: ClusterIP                       # Specifies the service type i.e ClusterIP or NodePort
 
 
-
+```
 $ kubectl get svc
 
 
@@ -251,7 +251,7 @@ VOLUME LABS
 
 EXAMPLE OF EMPTYDIR
 
-
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -274,12 +274,12 @@ spec:
   - name: xchange
     emptyDir: {}
 
-
+```
 
 -------------------------------------------------------------------------------------------
 
 HOSTPATH
-
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -297,11 +297,11 @@ spec:
     hostPath:
       path: /tmp/data 
 
-
+```
 -------------------------------------------------------------------------------------------
 
 PERSISTENT VOLUME
-
+```
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -316,11 +316,11 @@ spec:
     volumeID:           # YAHAN APNI EBS VOLUME ID DAALO
     fsType: ext4
 
-
+```
 --------------------------------------------------------------------------------------------
 
 PERSISTENT VOLUME CLAIM
-
+```
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -332,12 +332,12 @@ spec:
     requests:
       storage: 1Gi
 
-
+```
 
 --------------------------------------------------------------------------------------------
 
 ADD PERSISTENT VOLUME CLAIM TO A POD
-
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -363,12 +363,12 @@ spec:
         - name: mypd
           persistentVolumeClaim:
             claimName: myebsvolclaim
-
+```
 
 --------------------------------------------------------------------------------------------
 
 HEALTHCHECK/LIVENESSPROBE
-
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -392,12 +392,12 @@ spec:
       periodSeconds: 5                                 
       timeoutSeconds: 30                    
 
-
+```
 
 --------------------------------------------------------------------------------------------
 
 EXAMPLE OF CONFIGMAP
-
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -417,13 +417,13 @@ spec:
        items:
        - key: sample.conf
          path: sample.conf
-
+```
 --------------------------------------------------------------------------------------------
 
 
 CONFIGMAP USING ENVIRONMENT VARIABLE
 
-
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -440,12 +440,12 @@ spec:
           name: mymap      # name of the config created
           key: sample.conf      
 
-
+```
 ------------------------------------------------------------------------------------------
 
 EXAMPLE OF SECRETS      
 
-
+```
  apiVersion: v1
 kind: Pod
 metadata:
@@ -463,11 +463,11 @@ spec:
     secret:
        secretName: mysecret  
 
-
+```
 ------------------------------------------------------------------------------------------
 
 NAMESPACES
-
+```
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -478,11 +478,11 @@ metadata:
 
 $ kubectl config set-context $(kubectl config current-context) --namespace=dev
 $ kubectl config view | grep namespace:
-
+```
 ------------------------------------------------------------------------------------------
 
 EXAMPLE OF CREATING A POD USING REQUEST AND LIMIT
-
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -500,12 +500,12 @@ spec:
         memory: "128Mi"
         cpu: "200m"
 
-
+```
 ------------------------------------------------------------------------------------------
 
 
 RESOURCEQUOTA
-
+```
 apiVersion: v1
 kind: ResourceQuota
 metadata:
@@ -517,12 +517,12 @@ spec:
     requests.cpu: "200m"
     requests.memory: "200Mi"
 
-
+```
 
 ------------------------------------------------------------------------------------------
 
 CREATING A POD USING ONLY REQUEST
-
+```
 kind: Deployment
 apiVersion: apps/v1
 metadata:
@@ -546,11 +546,11 @@ spec:
             requests:
               cpu: "200m"
 
-
+```
 -----------------------------------------------------------------------------------------
 
 EXAMPLE OF LIMITRANGE
-
+```
 apiVersion: v1
 kind: LimitRange
 metadata:
@@ -564,11 +564,11 @@ spec:
     type: Container
 
 
-
+```
 -----------------------------------------------------------------------------------------
 
 EXAMPLE OF CREATING A POD USING ONLY LIMIT
-
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -581,12 +581,12 @@ spec:
       limits:
         cpu: "1"
 
-
+```
 
 -----------------------------------------------------------------------------------------
 
 EXAMPLE OF CREATING A POD USING ONLY REQUEST
-
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -601,12 +601,12 @@ spec:
 
 
 
-
+```
 ===================================================================================
                 SCALING RELATED YAMLS
 ===================================================================================
 
-
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -618,7 +618,9 @@ spec:
     resources:
       limits:
         cpu: "1"
+```
 =================================================================================================
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -630,7 +632,10 @@ spec:
     resources:
       requests:
         cpu: "0.75"
+
+```
 =================================MEMDEFAULT.YML========================================
+```
 apiVersion: v1
 kind: LimitRange
 metadata:
@@ -657,11 +662,13 @@ spec:
       requests:
         memory: "600Mi"
 
-
+```
 - If request is not specified & limit is given, then request = limit
 =================
 $ wget -O metricserver.yml https://github.com/kubernetes-sigs/me...
 --------------
+
+```
 kind: Deployment
 apiVersion: apps/v1
 metadata:
@@ -687,8 +694,12 @@ spec:
               cpu: 500m
             requests:
               cpu: 200m
+
+```
 ---------------------
+```
 $ kubectl autoscale deployment mydeploy --cpu-percent=20 --min=1 --max=10
+```
 
 
 ========================================================================================================
@@ -705,7 +716,7 @@ $ kubectl autoscale deployment mydeploy --cpu-percent=20 --min=1 --max=10
 
 ===========Job=====================================
 
-
+```
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -720,9 +731,10 @@ spec:
         image: centos:7
         command: ["bin/bash", "-c", "echo Technical-Guftgu; sleep 5"]
       restartPolicy: Never
+```
 
 --------------
-
+```
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -739,9 +751,10 @@ spec:
         image: centos:7
         command: ["bin/bash", "-c", "echo Technical-Guftgu; sleep 20"]
       restartPolicy: Never
+```
 
 -------------
-
+```
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
@@ -758,7 +771,7 @@ spec:
            command: ["/bin/bash", "-c", "echo Technical-Guftgu; sleep 5"]
          restartPolicy: Never
 
-
+```
 ================================================================================
                                 END
 ================================================================================ 
