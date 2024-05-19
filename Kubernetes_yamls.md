@@ -602,8 +602,7 @@ spec:
 
 
 ```
-
-                ****SCALING RELATED YAMLS****
+==SCALING RELATED YAMLS==
 
 
 ```
